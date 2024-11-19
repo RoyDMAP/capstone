@@ -1,0 +1,22 @@
+.center-content {
+    text-align: center;
+
+}
+
+.landing {
+    max-width: 80%;
+    height: auto;
+    margin: auto;
+    display: block;
+    padding: 20px;
+      
+}
+
+h1{
+   text-align: center;
+   padding: 10px;
+   
+}
+
+
+

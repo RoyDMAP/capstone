@@ -15,8 +15,19 @@ footer {
     padding: 12px 0 12px 0;
     background-color: #4e5051;
     color: white;
+
+}
+
+footer p {
+    margin: 5px;
+    text-align: center;
 }
 
 main {
     min-height: calc(100vh - 130px);
 }
+
+nav {
+    background-color: #416f86;
+}
+
