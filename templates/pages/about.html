@@ -1,7 +1,14 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
+{% endblock %}
 
 {% block content %}
 
-<h1>About us</h1>
+<img class="landing" src="{% static 'images/unifyd.jpeg' %}">
+
+<p class="about">Unifyd is an innovative developer group that designed a platforms that facilitate digital communication, collaboration, and content sharing. We combine technical expertise with a deep understanding of user behavior, visually appealing and user-friendly. Beyond coding and design, focused on emerging trends, prioritize privacy and security, and address challenges like misinformation and online toxicity. We built unifyd to foster connection and creativity, empowering users to share their voices and experiences. Our vision and adaptability play a crucial role in shaping how people interact and build communities in the digital age.</p>
 
 {% endblock %}

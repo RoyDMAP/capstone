@@ -18,7 +18,17 @@
         </ul>
         <div class="d-flex" role="search">
           {% if user.is_authenticated %}
-            <button class="btn btn-outline-light">{{ user.username }}</button>
+            <div class="dropdown nav-dropdown">
+              <button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                {{ user.username }}
+              </button>
+              <ul class="dropdown-menu user-dropdown">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="{% url 'update_profile' %}">Update my Profile</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="{% url 'login' %}">Logout</a></li>
+              </ul>
+            </div>
           {% else %}
           <a class="btn btn-outline-success" href="{% url 'login' %}">Login</a>
           {% endif %}

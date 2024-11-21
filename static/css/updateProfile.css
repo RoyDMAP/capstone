@@ -1,0 +1,25 @@
+.center-content {
+    text-align: center;
+
+}
+
+
+form {
+    background-color: #ffffff; /* Optional: Adds a background color for the form */
+    padding: 20px; /* Adds space around the form content */
+    border-radius: 8px; /* Optional: Rounds the corners of the form */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds a shadow for better visibility */
+    max-width: 600px; /* Sets a max-width for the form */
+    width: 100%; /* Ensures the form is responsive */
+    margin: 0 auto;
+    font-size: 28px;
+    padding-top: 30px;
+}
+
+h2{
+    margin: 0 auto;
+    font-size: 40px;
+    text-align: center;
+    
+}
+    

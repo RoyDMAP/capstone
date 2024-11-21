@@ -31,3 +31,15 @@ nav {
     background-color: #416f86;
 }
 
+.user-dropdown {
+    right: 0px !important;
+    left: unset !important;
+    top: 36px !important;
+
+}
+
+.nav-dropdown {
+    margin-right: 10px !important;
+
+}
+
