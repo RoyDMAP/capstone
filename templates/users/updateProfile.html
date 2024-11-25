@@ -7,14 +7,14 @@
 
 {% block content %}
 
-<div>
+<div class="edit-profile">
     <h2>Update your profile</h2>
 
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
 
         {% if form.instance.avatar %}
-        <img src="{{form.instance.avatar.url}}" alt="avatar">
+        <img class="edit-avatar" src="{{form.instance.avatar.url}}" alt="avatar">
         {% endif %}
 
         {{ form.as_p }}
@@ -27,3 +27,5 @@
 
 
 {% endblock %}
+
+

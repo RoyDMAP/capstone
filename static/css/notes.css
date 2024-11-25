@@ -1,0 +1,47 @@
+
+.list-note {
+    padding: 20px;
+}
+
+.list-note h1 {
+    text-align: center;
+    color: #333;
+    font-family: Lobster;
+}
+
+.list-note .note {
+    width: 300px;
+    height: 250px;
+    border: 1px solid #d3d3df;
+    border-radius: 4px;
+    margin: 10px;
+    padding: 12px;
+    display: inline-block;
+    background-color: #eff1f3;
+    vertical-align: top;
+    position: relative;
+}
+
+.list-note .note h4 {
+    margin-bottom: 0;
+    color: darkcyan;
+    font-weight: 300;
+}
+
+.list-note .note label {
+    margin-top: 0;
+    color: rgb(158, 155, 155);
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.list-note .note p {
+    margin-top: 12px;
+}
+
+.list-note .note button {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+
+}

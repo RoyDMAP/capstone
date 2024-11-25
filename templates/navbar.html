@@ -11,7 +11,18 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'about' %}">About</a>
-          </li>  
+          </li> 
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+              Notes
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{% url 'list_notes' %}">View notes</a></li>
+              <li><a class="dropdown-item" href="{% url 'create_note' %}">Create a note</a></li>
+            </ul>
+          </li>
+
           <li class="nav-item">
             <a class="nav-link" href="{% url 'contact' %}">Contact</a>
           </li>      
