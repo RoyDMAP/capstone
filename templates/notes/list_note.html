@@ -7,14 +7,20 @@
 
 {% block content %}
 <div class="list-note">
-    <h1>Your Notes</h1>
+    <div class="head">
+        <h1>Your Notes</h1>
+        <a href="{% url 'create_note' %}" class="btn btn-dark">Create a New Note</a>
+    </div>
+
+
     {% for note in note_list %}
         <div class="note">
             <h4>{{note.title}}</h4>
             <label>{{note.created_on}}</label>
             <p>{{note.text|truncatechars:100}}</p>
 
-            <button class=" btn btn-sm btn-outline-dark">View details</button>
+            
+            <a href="{% url 'detail_note' note.id %}" class=" btn btn-sm btn-outline-dark">View details &raquo;</a>
         </div>
     {% endfor %}
 </div>
