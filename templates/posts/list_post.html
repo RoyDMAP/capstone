@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/posts.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="list-posts">
+    <div class="post">
+        <h1>Feed: Latest post</h1>
+
+    {% for post in post_list %}
+        <div class="post">
+            <div class="user-info">
+                {% if post.author.profile.avatar %}
+                    <img src="{{post.author.profile.avantar.url}}">
+                {% else %}
+                    <img src="https://t3.ftcdn.net/jpg/06/33/54/78/360_F_633547842_AugYzexTpMJ9z1YcpTKUBoqBF0CUCk10.jpg">
+                {% endif %}
+                <div class="info">
+                    <label>{{post.author.username}}</label>
+                    <label>{{post.created_on}}</label>
+                </div>
+            </div>
+            <p>{{post.content}}</p>
+            {% if post.image %}
+                <img class="uploaded-img" src="{{post.image.url}}">
+            {% endif %}
+
+            {% if post.video_url %}
+
+            {% endif %}
+
+       </div>     
+    {% endfor %}    
+
+</div>
+{% endblock %}

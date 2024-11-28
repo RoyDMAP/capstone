@@ -1,0 +1,40 @@
+.list-posts .post {
+    border: 1px solid lightgray;
+    padding: 6px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+}
+
+.list-post .post p {
+    
+
+}
+
+.list-posts .post .uploaded-img {
+    max-height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.list-posts .post .user-info {
+    display: flex;
+}
+
+.list-posts .post .user-info img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 1px solid #fafafa;
+}
+
+.list-posts .post .user-info .info {
+    padding-top: 15px;
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+}
+
+.list-posts .post .user-info label {
+    flex: 1;
+    
+}

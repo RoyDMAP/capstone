@@ -32,3 +32,10 @@ python3 manage.py createsuperuser
 #base.css should use Global style to apply across pages
 
 # Models is a description of your table
+
+
+# Create a posts apply
+  create the app
+  register the app on settings
+  create a urls.py in the posts
+  register the post.urls in config.urls
