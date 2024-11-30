@@ -1,19 +1,31 @@
+
+.list-posts, main {
+    background-color: #eff1f3;
+}
 .list-posts .post {
-    border: 1px solid lightgray;
+    border: 1px solid #c7ccd0;
+    background-color: white;
     padding: 6px;
     border-radius: 6px;
     margin-bottom: 12px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.list-post .post p {
+.list-posts .post p {
+    margin-top: 10px;
+    margin-bottom: 0;
     
 
 }
 
 .list-posts .post .uploaded-img {
-    max-height: 400px;
+    max-height: 410px;
+    border-radius: 4px;
     margin-left: auto;
     margin-right: auto;
+    display: block;
 }
 
 .list-posts .post .user-info {
@@ -25,16 +37,78 @@
     height: 80px;
     border-radius: 50%;
     border: 1px solid #fafafa;
+    margin-right: 7px;
 }
 
 .list-posts .post .user-info .info {
     padding-top: 15px;
-    display: flex;
-    flex: 1;
-    flex-direction: row;
+   
 }
 
 .list-posts .post .user-info label {
-    flex: 1;
-    
+    display: block;
+       
 }
+
+.list-posts .head h1{
+    flex: 1;
+    text-align: center;
+
+
+}
+
+.list-posts .head {
+    text-align: center;
+
+}
+
+.list-posts .head a {
+    margin-left: 500px;
+    margin-bottom: 10px;
+}
+
+.create-posts .body {
+    padding: 20px;
+    border: 1px solid #d3d3df;  
+    border-radius: 6px;
+    background-color: #eff1f3;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+}
+
+.create-posts .body h1 {
+    color: #106b89;
+    font-weight: 400;
+    margin-bottom: 12px;
+}
+
+.create-posts .body label {
+    font-weight: 300;
+    color: #787b7d;
+    font-size: 14px;
+}
+
+.create-posts .body .controls {
+    text-align: right;
+    margin-top: 12px;
+}
+
+.create-posts .body input,
+.create-posts .body textarea {
+    width: 550px;
+}
+
+@media(max-width: 767px) {
+    /*rules for cellphones */
+
+    .list-posts .post .uploaded-img {
+        max-width: 100%;
+    }
+
+    .list-posts .head a {
+        margin-left: 0;
+    }
+}
+

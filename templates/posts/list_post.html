@@ -7,14 +7,16 @@
 
 {% block content %}
 <div class="list-posts">
-    <div class="post">
+    <div class="head">
         <h1>Feed: Latest post</h1>
+        <a class="btn btn-outline-dark" href="{% url 'create_post' %}">Create new Post</a>
+    </div>
 
     {% for post in post_list %}
         <div class="post">
             <div class="user-info">
-                {% if post.author.profile.avatar %}
-                    <img src="{{post.author.profile.avantar.url}}">
+                {% if post.author_profile.avatar %}
+                    <img src="{{post.author_profile.avatar.url}}">
                 {% else %}
                     <img src="https://t3.ftcdn.net/jpg/06/33/54/78/360_F_633547842_AugYzexTpMJ9z1YcpTKUBoqBF0CUCk10.jpg">
                 {% endif %}
