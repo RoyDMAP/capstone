@@ -67,6 +67,53 @@
     margin-bottom: 10px;
 }
 
+.list-posts .video-container {
+    text-align: center;
+}
+
+.list-posts .reactions {
+    background-color: #406f8614;
+    margin-left: -6px;
+    margin-right: -6px;
+    margin-bottom: -6px;
+    border-top: 1px solid #406f8617;
+    margin-top: 20px;
+    padding: 5px;
+}
+
+.list-posts .reactions button {
+    background-color: #d6e3e6;
+    margin: 0;
+    border: 1px solid #c6d4d7;
+    padding: 5px 10px;
+    font-weight: 300;
+}
+
+.list-posts .reactions i {
+    font-size: 20px;
+    color: #9ba5aa;
+}
+
+.list-posts .reactions .like:hover i {
+    color: #416f86;
+
+}
+
+.list-posts .reactions .love:hover i {
+    color: red;
+
+}
+
+.list-posts .controls {
+    margin-left: auto;
+
+}
+
+.list-posts .controls i {
+    margin-left: 5px;
+    cursor: pointer;
+}
+
 .create-posts .body {
     padding: 20px;
     border: 1px solid #d3d3df;  

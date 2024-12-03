@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load embed_video_tags %}
 
 {% block css %}
 <link rel="stylesheet" href="{% static 'css/posts.css' %}">
@@ -24,16 +25,40 @@
                     <label>{{post.author.username}}</label>
                     <label>{{post.created_on}}</label>
                 </div>
+
+                <div class="controls">
+                    <i class="fa-solid fa-bookmark"></i>
+                    <i class="fa-solid fa-share"></i>
+                </div>
             </div>
+
             <p>{{post.content}}</p>
             {% if post.image %}
                 <img class="uploaded-img" src="{{post.image.url}}">
             {% endif %}
 
-            {% if post.video_url %}
-
+           <div class="video-container">
+                {% if post.video %}
+                {% video post.video %}
             {% endif %}
+            </div>
 
+            <div class="reactions">
+                <form method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="post_id" value="{{post.id}}">
+
+                <button type="submit" name="react_type" value="like" class="like">
+                    <span class="count">{{post.likes}}</span>
+                    <i class="fa-solid fa-thumbs-up"></i>
+                </button>
+
+                <button type="submit" name="react_type" value="heart" class="love">
+                    <span class="count">{{post.hearts}}</span>
+                    <i class="fa-solid fa-heart"></i>
+                </button>
+            </form>    
+            </div>
        </div>     
     {% endfor %}    
 

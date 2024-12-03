@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from embed_video.fields import EmbedVideoField
 
 # Create your models here.
 class Post(models.Model):
@@ -7,7 +8,22 @@ class Post(models.Model):
     image = models.ImageField(upload_to="posts/", blank=True, null=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     created_on = models.DateTimeField(auto_now_add=True)
-    video_url = models.URLField(blank=True, null=True)
+    video = EmbedVideoField(blank=True, null=True)
 
     def __str__(self):
         return f"{self.author.username}: {self.content[:20]}"
+
+
+class Reactions(models.Model):
+    REACTION_TYPES = [
+        ('like', 'Like'),
+        ('dislike', 'Dislike'),
+        ('heart', 'Heart')
+    ]
+
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="reactions")
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    react_type = models.CharField(max_length=10, choices=REACTION_TYPES)
+
+    def __str__(self):
+        return f"{self.user.username} reacted with: {self.react_type} to {self.post}"

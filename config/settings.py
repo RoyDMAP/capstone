@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'users',
     'notes',
     'posts',
+    'embed_video',
 ]
 
 MIDDLEWARE = [
@@ -71,6 +72,11 @@ TEMPLATES = [
         },
     },
 ]
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.template.context_processors.request',
+)
+
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
