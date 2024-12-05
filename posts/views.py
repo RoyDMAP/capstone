@@ -1,11 +1,13 @@
 from django.shortcuts import render
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView
-from .models import Post, Reactions
-from .forms import PostForm, ReactionForm
+from .models import Post, Reactions, Comment
+from .forms import PostForm, ReactionForm, CommentForm
 from django.urls import reverse
 from users.models import Profile
 from django.shortcuts import redirect
+from django.views import View
+from django.http import JsonResponse
 
 # Create your views here.
 class ListPostsView(ListView):
@@ -14,7 +16,7 @@ class ListPostsView(ListView):
     context_object_name = 'post_list'
 
     def get_queryset(self):
-        data = super().get_queryset().order_by('-created_on')
+        data = super().get_queryset().order_by('-created_on').prefetch_related('comments')
         for post in data: 
             post.author_profile = Profile.objects.filter(user=post.author).first()
             post.likes = Reactions.objects.filter(post=post).filter(react_type='like').count()
@@ -47,3 +49,35 @@ class CreatePostView(CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user # logged in user
         return super().form_valid(form)
+    
+    
+class SaveCommentView(CreateView):
+    
+    def post(self, request, *args, **kwargs):
+        post_id = request.POST.get("post_id")
+        comment_text = request.POST.get('text')
+
+
+        # get the post
+        post = Post.objects.get(id=post_id)
+        user = request.user 
+
+        # create the comment
+        comment = Comment.object.create(
+            text = comment_text,
+            post = post,
+            user = user
+
+        )
+
+        # return a json response
+        return JsonResponse({
+            'status': 'success',
+            'comment': {
+                'id': comment.id,
+                'text': comment.text,
+                'user': comment.user.username,
+                'created_on': comment.created_on
+            }
+        })
+

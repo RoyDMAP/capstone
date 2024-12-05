@@ -1,5 +1,5 @@
 from django import forms
-from .models import Post, Reactions
+from .models import Post, Reactions, Comment
 
 class PostForm(forms.ModelForm):
     class Meta:
@@ -15,4 +15,8 @@ class ReactionForm(forms.ModelForm):
         model = Reactions
         fields = ['react_type']
        
-        
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['text'] 

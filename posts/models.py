@@ -27,3 +27,11 @@ class Reactions(models.Model):
 
     def __str__(self):
         return f"{self.user.username} reacted with: {self.react_type} to {self.post}"
+
+
+
+class Comment(models.Model):
+    text = models.TextField()
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    created_on = models.DateTimeField(auto_now_add=True)

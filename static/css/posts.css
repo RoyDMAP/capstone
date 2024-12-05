@@ -79,6 +79,9 @@
     border-top: 1px solid #406f8617;
     margin-top: 20px;
     padding: 5px;
+
+    display: flex;
+    justify-content: space-between;
 }
 
 .list-posts .reactions button {
@@ -112,6 +115,57 @@
 .list-posts .controls i {
     margin-left: 5px;
     cursor: pointer;
+}
+
+.list-posts .comments {
+    background-color: #406f8614;
+    
+    padding: 0 20px 10px 20px;
+    margin-top: 6px;
+    margin-left: -6px;
+    margin-right: -6px;
+    margin-bottom: -6px;
+}
+
+.list-posts .comments .comment {
+    border-top: 1px solid #406f861f;
+}
+
+.list-posts .comments .author {
+    font-weight: 600;
+
+}
+
+.list-posts .comments .text {
+    margin-top: 0; 
+}
+
+.list-posts .comments .date {
+    margin-top: 0;
+    color: #406f869e;
+}
+
+.list-posts .comments-link {
+    color: #333;
+    margin-right: 17px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.list-posts .comments-link:hover {
+    color: #0f5cc8;
+}
+
+.list-posts .comments .form {
+    position: relative;
+
+}
+
+.list-posts .comments .form button {
+    position: absolute;
+    right: 6px;
+    bottom: 5px;
+
 }
 
 .create-posts .body {
@@ -157,5 +211,11 @@
     .list-posts .head a {
         margin-left: 0;
     }
+
+    .list-posts iframe {
+        width: auto !important;
+    }
 }
+
+
 
