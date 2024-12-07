@@ -168,6 +168,10 @@
 
 }
 
+.list-posts .date {
+    color: #a8b2b7;
+}
+
 .create-posts .body {
     padding: 20px;
     border: 1px solid #d3d3df;  

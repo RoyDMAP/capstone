@@ -63,7 +63,7 @@ class SaveCommentView(CreateView):
         user = request.user 
 
         # create the comment
-        comment = Comment.object.create(
+        comment = Comment.objects.create(
             text = comment_text,
             post = post,
             user = user
@@ -80,4 +80,5 @@ class SaveCommentView(CreateView):
                 'created_on': comment.created_on
             }
         })
+
 

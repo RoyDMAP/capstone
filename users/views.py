@@ -7,6 +7,8 @@ from django.shortcuts import redirect
 from django.views.generic.edit import CreateView, UpdateView
 from .forms import SignupForm, ProfileForm
 from .models import Profile
+from django.views.generic import DetailView 
+from posts.models import Post
 
 # class-based views
 """
@@ -60,3 +62,21 @@ class UpdateProfileView(UpdateView):
     def get_object(self):
         # return the Profile record that will be updated
         return Profile.objects.get(user=self.request.user)
+    
+
+
+
+class ProfileDetailView(DetailView):
+    template_name = "users/profile.html"
+    model = Profile
+
+    def get_object(self):
+        # get the profile using the objext id
+        user_id = self.kwargs.get('user_id')
+        return Profile.objects.filter(user__id=user_id).first()
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user = self.object.user
+        context['posts'] = Post.objects.filter(author=user).order_by('-created_on')
+        return context

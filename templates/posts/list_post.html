@@ -26,8 +26,8 @@
                     <img src="https://t3.ftcdn.net/jpg/06/33/54/78/360_F_633547842_AugYzexTpMJ9z1YcpTKUBoqBF0CUCk10.jpg">
                 {% endif %}
                 <div class="info">
-                    <label>{{post.author.username}}</label>
-                    <label>{{post.created_on}}</label>
+                    <a href="{% url 'profile' post.author.id %}"><label>{{post.author.username}}</label> </a>
+                    <label class="date">{{post.created_on}}</label>
                 </div>
 
                 <div class="controls">
@@ -75,10 +75,11 @@
                     </div>
                 {% endfor %}
 
-                <form class="form">
+                <form class="form comment-form">
                     {% csrf_token %}
                     <input type="hidden" name="post_id" value="{{post.id}}">
-                    <p class="author">{{user.username}}:</p>
+
+                    <p>Comment:</p>
                     <textarea name="text" class="form-control" rows="3"></textarea>
                     <button class="btn btn-sm btn-outline-primary">
                         <i class="fa-regular fa-paper-plane"></i>
