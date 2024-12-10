@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/bookmark.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="List-bookmark">
+    <div class="bookmark">
+        <h1>View your Bookmarks</h1>
+    </div>
+
+
+    {% for bookmark in bookmark_list %}
+        <div class="bookmarks">
+            <h3>{{bookmark.title}}</h3>
+            <h5>{{bookmark.post.content}}</h5>
+            <label>{{bookmark.create_on}}</label>
+        </div>
+
+    {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

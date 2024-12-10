@@ -1,0 +1,31 @@
+.List-bookmark {
+    text-align: center;
+}
+
+h1 {
+    margin: 0 auto;
+    font-size: 40px;
+    text-align: center;
+}
+
+.bookmark {
+    padding-bottom: 30px;
+}
+
+.bookmarks {
+    background-color: #ffffff; /* Optional: Adds a background color for the form */
+    padding: 20px; /* Adds space around the form content */
+    border-bottom:1px solid #dceef5;
+    border-radius: 8px; /* Optional: Rounds the corners of the form */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds a shadow for better visibility */
+    max-width: 600px; /* Sets a max-width for the form */
+    width: 100%; /* Ensures the form is responsive */
+    margin: 0 auto;
+    margin-bottom: 12px;
+    font-size: 28px;
+    padding-top: 30px;
+}
+
+.bookmarks label {
+    font-size: 14px;
+}

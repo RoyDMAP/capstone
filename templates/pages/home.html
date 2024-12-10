@@ -3,14 +3,34 @@
 
 {% block css %}
 <link rel="stylesheet" href="{% static 'css/home.css' %}">
+
 {% endblock %}
 
 {% block content %}
+<section class="hero-section">
+    <div class="hero-content">
+        <h1>Welcome to our Online Community</h1>
+        <p>Connect, share, and grow with like-minded individuals from around the world. Join us today and be part of something amazing!</p>
+        <a href="users/signup.html" class="cta-button">Get Started</a>
+    </div>
+    <img class="landing-image" src="{% static 'images/unifyd.jpeg' %}" alt="Community Illustration">
+</section>
 
-<h1>Welcome to our online community</h1>
-
-
-
-<img class="landing" src="{% static 'images/unifyd.jpeg' %}">
-
+<section class="features">
+    <div class="feature">
+        <div class="feature-icon">🤝</div>
+        <h3>Connect</h3>
+        <p>Build meaningful relationships with people who share your interests.</p>
+    </div>
+    <div class="feature">
+        <div class="feature-icon">💡</div>
+        <h3>Learn</h3>
+        <p>Share knowledge, skills, and experiences with our vibrant community.</p>
+    </div>
+    <div class="feature">
+        <div class="feature-icon">🌍</div>
+        <h3>Explore</h3>
+        <p>Discover new perspectives and broaden your horizons.</p>
+    </div>
+</section>
 {% endblock %}

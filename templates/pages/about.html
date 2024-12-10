@@ -1,14 +1,40 @@
 {% extends 'base.html' %}
 {% load static %}
-
+ 
 {% block css %}
 <link rel="stylesheet" href="{% static 'css/about.css' %}">
 {% endblock %}
-
+ 
 {% block content %}
+<div class="about-container">
+    <div class="hero-section">
+        <img class="landing" src="{% static 'images/unifyd.jpeg' %}" alt="Unifyd Team">
+        <h1 class="page-title">About Unifyd</h1>
+    </div>
 
-<img class="landing" src="{% static 'images/unifyd.jpeg' %}">
+    <div class="mission-section">
+        <h2>Our Mission</h2>
+        <p class="about">Unifyd is an innovative developer group that designed a platform to facilitate digital communication, collaboration, and content sharing. We combine technical expertise with a deep understanding of user behavior to create visually appealing and user-friendly digital experiences.</p>
+    </div>
 
-<p class="about">Unifyd is an innovative developer group that designed a platforms that facilitate digital communication, collaboration, and content sharing. We combine technical expertise with a deep understanding of user behavior, visually appealing and user-friendly. Beyond coding and design, focused on emerging trends, prioritize privacy and security, and address challenges like misinformation and online toxicity. We built unifyd to foster connection and creativity, empowering users to share their voices and experiences. Our vision and adaptability play a crucial role in shaping how people interact and build communities in the digital age.</p>
+    <div class="vision-section">
+        <h2>Our Vision</h2>
+        <p>Beyond coding and design, we are focused on emerging trends and committed to prioritizing privacy and security. We aim to address challenges like misinformation and online toxicity, building a platform that fosters genuine connection and creativity.</p>
+    </div>
 
+    <div class="values-section">
+        <h2>Our Core Values</h2>
+        <ul>
+            <li>User Empowerment</li>
+            <li>Digital Privacy</li>
+            <li>Continuous Innovation</li>
+            <li>Inclusive Communication</li>
+        </ul>
+    </div>
+
+    <div class="commitment-section">
+        <h2>Our Commitment</h2>
+        <p>We built Unifyd to empower users to share their voices and experiences. Our vision and adaptability play a crucial role in shaping how people interact and build communities in the digital age.</p>
+    </div>
+</div>
 {% endblock %}

@@ -1,26 +1,67 @@
-.center-content {
-    text-align: center;
+/* static/css/about.css */
+.about-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+}
 
+.hero-section {
+    position: relative;
+    text-align: center;
+    margin-bottom: 30px;
 }
 
 .landing {
-    width: auto;
-    height: auto;
-    margin: auto;
-    display: block;
-    padding: 20px;
-      
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    margin-top: 50px;
 }
 
-.about {
-    font-family:'Lucida Sans';
-    font-size: 22px;
-    line-height: 1.6;
+.page-title {
+    position: absolute;
+    top: 4%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    background-color: rgb(2, 141, 141);
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.mission-section, .vision-section, .values-section, .commitment-section {
+    margin-bottom: 30px;
+}
+
+h2 {
     color: #333;
-    padding: 20px;
-    max-width: 80%;
-    text-align: center;
-    margin: 0 auto;
-    
+    border-bottom: 2px solid #05364b;
+    padding-bottom: 10px;
 }
 
+.values-section ul {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    padding: 0;
+}
+
+.values-section li {
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+@media (max-width: 600px) {
+    .values-section ul {
+        flex-direction: column;
+    }
+    
+    .values-section li {
+        margin-bottom: 10px;
+    }
+}

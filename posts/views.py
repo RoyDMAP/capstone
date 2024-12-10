@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView
-from .models import Post, Reactions, Comment
+from .models import Post, Reactions, Comment, Bookmark
 from .forms import PostForm, ReactionForm, CommentForm
 from django.urls import reverse
 from users.models import Profile
@@ -80,5 +80,9 @@ class SaveCommentView(CreateView):
                 'created_on': comment.created_on
             }
         })
+    
+class ListBookmarkView(ListView):
+    template_name = "posts/list_bookmark.html"
+    model = Bookmark
 
 

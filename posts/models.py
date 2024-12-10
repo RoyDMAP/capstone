@@ -35,3 +35,28 @@ class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     created_on = models.DateTimeField(auto_now_add=True)
+
+class Bookmark(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    create_on = models.DateTimeField(auto_now_add=True)
+    title = models.CharField(max_length=200, blank=True, null=True)
+
+
+"""
+    create the model for Bookmark
+     user
+     post
+     create_on
+
+     
+
+    create the view to save bookmark
+
+    create the url
+
+    udpate the list page,
+    when the user clicks on the button
+    we will send an js ajax request to save the bookmark
+
+"""
