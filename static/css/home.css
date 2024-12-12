@@ -67,3 +67,6 @@
     color: #2575fc;
     margin-bottom: 1rem;
 }
+main {
+    padding: 0 !important;
+}

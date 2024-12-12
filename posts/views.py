@@ -1,13 +1,13 @@
 from django.shortcuts import render
 from django.views.generic import ListView
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, DeleteView
 from .models import Post, Reactions, Comment, Bookmark
 from .forms import PostForm, ReactionForm, CommentForm
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from users.models import Profile
 from django.shortcuts import redirect
 from django.views import View
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponseRedirect
 
 # Create your views here.
 class ListPostsView(ListView):
@@ -85,4 +85,41 @@ class ListBookmarkView(ListView):
     template_name = "posts/list_bookmark.html"
     model = Bookmark
 
+    def get_queryset(self):
+        return Bookmark.objects.filter(user=self.request.user)
+
+
+class SaveBookmarkView(CreateView):
+    def post(self, request, *args, **kwargs):
+        post_id = request.POST.get("post_id")
+        title = request.POST.get("title")
+
+        # get post
+        post = Post.objects.get(id=post_id)
+        user = request.user
+
+        bookmark = Bookmark.objects.create(
+            title=title,
+            post=post,
+            user=user
+        )
+
+        # return success
+        return JsonResponse({
+            'status': 'success',
+        })
+
+
+class DeleteBookmarkView(DeleteView):
+    model = Bookmark
+    success_url = reverse_lazy('bookmarks')
+
+    def get(self, request, *args, **kwargs):
+        # skip confirmation page
+        return self.post(request, *args, **kwargs)
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        self.object.delete()
+        return HttpResponseRedirect(self.success_url)
 

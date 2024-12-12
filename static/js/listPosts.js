@@ -70,6 +70,36 @@ function showComments(postId) {
     }
 }
 
+var bookmarkingPostId = 0;
+var myModal = null;
 
+function showModal(postId){
+    bookmarkingPostId = postId;
+    myModal = new bootstrap.Modal($('#bookmarkModal'))
+    myModal.show();
+}
+
+function saveBookmark() {
+    const title = $("#txtBookmarkTile").val();
+    const token = $("input[name='csrfmiddlewaretoken']").val();
+    $.ajax({
+        url: "/posts/save_bookmark/",
+        method: "POST",
+        data: {
+            post_id: bookmarkingPostId,
+            title: title,
+            csrfmiddlewaretoken: token
+        },
+        success: function() {
+            console.log("bookmark saved!");
+            myModal.hide();
+        },
+        error: function(err){
+            console.log("Error", err);
+        }
+
+    })
+
+}
 
 window.onload =init;

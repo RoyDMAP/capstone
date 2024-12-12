@@ -24,8 +24,21 @@ h1 {
     margin-bottom: 12px;
     font-size: 28px;
     padding-top: 30px;
+    position: relative;
 }
 
 .bookmarks label {
     font-size: 14px;
+}
+
+.bookmarks .btn-view {
+    position: absolute;
+    right: 10px;
+    bottom: 6px;
+}
+
+.bookmarks .btn-remove {
+    position: absolute;
+    top: 6px;
+    right: 10px;
 }
