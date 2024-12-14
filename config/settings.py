@@ -12,6 +12,11 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 import os
 from pathlib import Path
+import environ
+
+# load environment vars
+env = environ.Env()
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -150,3 +155,8 @@ EMAIL_HOST_PASSWORD = 'your_password'
 DEFAULT_FROM_EMAIL = 'your_email@example.com'
 ADMIN_EMAIL = 'admin@example.com'
 
+# if this code is executed in heroku
+# use a heroku db instead of sqlite db
+if 'DYNO' in os.environ:
+    import django_heroku
+    django_heroku.settings(locals())
