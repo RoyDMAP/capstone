@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'notes',
     'posts',
     'embed_video',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -158,3 +159,16 @@ ADMIN_EMAIL = 'admin@example.com'
 if 'DYNO' in os.environ:
     import django_heroku
     django_heroku.settings(locals())
+
+# AWS S3 Config
+AWS_ACCESS_KEY_ID = env("AWS_KEY")
+AWS_SECRET_ACCESS_KEY = env("AWS_SECRET")
+AWS_STORAGE_BUCKET_NAME = "unifyd"
+AWS_S3_REGION_NAME = "us-east-2"
+AWS_QUERYSTRING_AUTH = False
+
+DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+MEDIA_URL = f"https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/"
+
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
