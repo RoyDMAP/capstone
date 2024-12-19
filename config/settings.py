@@ -181,3 +181,5 @@ STORAGES = {
     },
 }
 
+LOGIN_URL = '/users/login/'
+

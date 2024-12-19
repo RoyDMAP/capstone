@@ -8,9 +8,10 @@ from users.models import Profile
 from django.shortcuts import redirect
 from django.views import View
 from django.http import JsonResponse, HttpResponseRedirect
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
-class ListPostsView(ListView):
+class ListPostsView(LoginRequiredMixin, ListView):
     template_name = "posts/list_post.html"
     model = Post
     context_object_name = 'post_list'
@@ -81,7 +82,7 @@ class SaveCommentView(CreateView):
             }
         })
     
-class ListBookmarkView(ListView):
+class ListBookmarkView(LoginRequiredMixin, ListView):
     template_name = "posts/list_bookmark.html"
     model = Bookmark
 
