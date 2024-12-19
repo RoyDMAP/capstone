@@ -122,4 +122,18 @@ class DeleteBookmarkView(DeleteView):
         self.object = self.get_object()
         self.object.delete()
         return HttpResponseRedirect(self.success_url)
+    
+class DeletePostView(DeleteView):
+    model = Post
+    success_url = reverse_lazy('list_posts')
+
+    def get(self, request, *args, **kwargs):
+        # skip confirmation page
+        return self.post(request, *args, **kwargs)
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        self.object.delete()
+        return HttpResponseRedirect(self.success_url)
+    
 
